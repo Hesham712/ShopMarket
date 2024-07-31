@@ -51,47 +51,6 @@ namespace ShopMarket_Web_API.Controllers
             return Ok(resultData);
             
         }
-
-        //[HttpPost("register")]
-        //public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
-        //{
-        //    try
-        //    {
-        //        if (!ModelState.IsValid)
-        //            return BadRequest(ModelState);
-        //        var searchUser = await _userManager.FindByNameAsync(registerDto.UserName);
-        //        if(searchUser != null)
-        //            return BadRequest("this UserName Already exist");
-
-        //        var User = new User
-        //        {
-        //            Name = registerDto.Name,
-        //            UserName = registerDto.UserName,
-        //            PasswordHash = registerDto.Password,
-        //            Email = registerDto.Email
-        //        };
-
-        //        var createdUser = await _userManager.CreateAsync(User,registerDto.Password);
-        //        if (createdUser.Succeeded)
-        //        {
-        //            return Ok(new NewUserDto
-        //            {
-        //                UserName = User.UserName,
-        //                Email = User.Email,
-        //                Token = _tokenService.CreateToken(User)
-        //            });
-        //        }
-        //        else
-        //        {
-        //            return StatusCode(500, createdUser.Errors.ToString());
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, ex.Message);
-        //    }
-        //}
-
         [HttpPost("SignUp")]
         public async Task<IActionResult> SignUp([FromBody] SignUpUserDto model)
         {
@@ -163,6 +122,23 @@ namespace ShopMarket_Web_API.Controllers
                 return Ok($"UserName : {UserName} has been locked");
             else
                 return BadRequest("User Not Found");
+        }
+
+        [HttpPost("ChangePassword{UserId}")]
+        public async Task<IActionResult> ChangePassword([FromRoute] int UserId,[FromBody] UpdateUserPasswordDto userDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.ToString());
+
+            var PasswordUserChanged = await _userRepository.ChangePasswordAsync(UserId, userDto);
+            if (PasswordUserChanged)
+            {
+                return StatusCode(200,"Password Changed Successfully");
+            }
+            else
+            {
+                return StatusCode(400, "Invalid password");
+            }
         }
     }
 }

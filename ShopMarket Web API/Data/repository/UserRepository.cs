@@ -25,6 +25,29 @@ namespace ShopMarket_Web_API.Data.repository
             _context = context;
         }
 
+        public async Task<bool> ChangePasswordAsync(int UserId, UpdateUserPasswordDto userPassDto)
+        {
+            var user = await _userManager.FindByIdAsync(UserId.ToString());
+            if (user != null)
+            {
+                var oldPassExist = await _userManager.CheckPasswordAsync(user,userPassDto.OldPassword);
+                if (oldPassExist)
+                {
+                    if (userPassDto.NewPassword == userPassDto.ConfirmPassword)
+                    {
+                        await _userManager.ChangePasswordAsync(user, userPassDto.OldPassword, userPassDto.NewPassword);
+                        await _context.SaveChangesAsync();
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public async Task<string> ConfirmEmail(int userId, string token)
         {
             var userDetails = await _userManager.FindByIdAsync(userId.ToString());
@@ -80,8 +103,8 @@ namespace ShopMarket_Web_API.Data.repository
 
         public async Task<UserGetDto> UpdateUser(int UserId, UpdateUserDto userDto)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(m=>m.Id == UserId);
-            if (user == null) 
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == UserId);
+            if (user == null)
                 return null;
 
             _mapper.Map<UpdateUserDto, User>(userDto, user);

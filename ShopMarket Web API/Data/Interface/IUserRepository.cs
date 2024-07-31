@@ -11,6 +11,7 @@ namespace ShopMarket_Web_API.Data.Interface
         public Task<IList<User>> GetInActiveUserAsync();
         public Task<bool> DeleteUser(string userName);
         public Task<UserGetDto> UpdateUser(int UserId,UpdateUserDto user);
+        public Task<bool> ChangePasswordAsync(int UserId, UpdateUserPasswordDto userPassDto);
         public Task<string> ConfirmEmail(int userId,string token);
     }
 }
