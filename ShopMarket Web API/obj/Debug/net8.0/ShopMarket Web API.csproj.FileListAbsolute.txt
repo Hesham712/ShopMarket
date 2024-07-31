@@ -1,0 +1,153 @@
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\appsettings.Development.json
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\appsettings.json
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ShopMarket Web API.exe
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ShopMarket Web API.deps.json
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ShopMarket Web API.runtimeconfig.json
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ShopMarket Web API.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ShopMarket Web API.pdb
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Azure.Core.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Azure.Identity.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Humanizer.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.OpenApi.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Mono.TextTemplating.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.CodeDom.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Composition.Convention.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Composition.Hosting.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Composition.Runtime.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Composition.TypedParts.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Drawing.Common.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Memory.Data.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Runtime.Caching.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Security.Permissions.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\System.Windows.Extensions.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.csproj.AssemblyReference.cache
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.GeneratedMSBuildEditorConfig.editorconfig
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.AssemblyInfoInputs.cache
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.AssemblyInfo.cs
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.csproj.CoreCompileInputs.cache
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.MvcApplicationPartsAssemblyInfo.cs
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.MvcApplicationPartsAssemblyInfo.cache
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\staticwebassets.build.json
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\staticwebassets.development.json
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\staticwebassets\msbuild.ShopMarket Web API.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\staticwebassets\msbuild.build.ShopMarket Web API.props
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ShopMarket Web API.props
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ShopMarket Web API.props
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\staticwebassets.pack.json
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\scopedcss\bundle\ShopMarket Web API.styles.css
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMark.7CF6F16D.Up2Date
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\refint\ShopMarket Web API.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.pdb
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.genruntimeconfig.cache
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ref\ShopMarket Web API.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\MimeKit.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\SendGrid.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\StarkbankEcdsa.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\AutoMapper.dll

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ShopMarket Web API.props" />
+</Project>
