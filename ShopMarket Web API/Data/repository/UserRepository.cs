@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ShopMarket_Web_API.Data.Interface;
 using ShopMarket_Web_API.Dtos.Account;
+using ShopMarket_Web_API.Dtos.Order;
 using ShopMarket_Web_API.Models;
 
 namespace ShopMarket_Web_API.Data.repository
@@ -48,7 +49,7 @@ namespace ShopMarket_Web_API.Data.repository
                 throw new ArgumentException("Email is taken");
 
             var user = _mapper.Map<User>(userModel);
-            var result = await _userManager.CreateAsync(user, userModel.PasswordHash);
+            var result = await _userManager.CreateAsync(user, userModel.Password);
             if (result.Succeeded)
             {
                 var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -77,15 +78,18 @@ namespace ShopMarket_Web_API.Data.repository
         public async Task<IList<User>> GetInActiveUserAsync() =>
             await _userManager.Users.Where(m => m.LockoutEnabled == true).ToListAsync();
 
-        public async Task<User> UpdateUser(int UserId, UpdateUserDto user)
+        public async Task<UserGetDto> UpdateUser(int UserId, UpdateUserDto userDto)
         {
-            var userExist = await _context.Users.FirstOrDefaultAsync(m=>m.Id == UserId);
-            if (userExist == null) 
+            var user = await _context.Users.FirstOrDefaultAsync(m=>m.Id == UserId);
+            if (user == null) 
                 return null;
 
-            var result = _mapper.Map<UpdateUserDto, User>(user, userExist);
+            _mapper.Map<UpdateUserDto, User>(userDto, user);
+            var userGetDto = _mapper.Map<UserGetDto>(user);
+
+            await _userManager.UpdateAsync(user);
             await _context.SaveChangesAsync();
-            return result;
+            return userGetDto;
         }
     }
 }

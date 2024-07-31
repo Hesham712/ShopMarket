@@ -151,3 +151,4 @@ E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\n
 E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\SendGrid.dll
 E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\StarkbankEcdsa.dll
 E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\bin\Debug\net8.0\AutoMapper.dll
+E:\Fcaih\.Net\TransIT\projects\ShopMarket Web API\ShopMarket Web API\obj\Debug\net8.0\ShopMarket Web API.sourcelink.json

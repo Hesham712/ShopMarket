@@ -146,7 +146,7 @@ namespace ShopMarket_Web_API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.ToString());
 
-            var result = _userRepository.UpdateUser(UserId, userDto);
+            var result = await _userRepository.UpdateUser(UserId, userDto);
             if (result != null) 
                 return Ok(result);
             return BadRequest(ModelState.ToString());

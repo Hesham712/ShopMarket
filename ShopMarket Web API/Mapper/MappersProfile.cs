@@ -17,10 +17,12 @@ namespace ShopMarket_Web_API.Mapper
             CreateMap<Product, ProductDetailsDto>().ReverseMap();
             CreateMap<Product, ProductUpdatedDto>().ReverseMap();
 
-            CreateMap<User, SignUpUserDto>().ReverseMap();
+            CreateMap<User, SignUpUserDto>().ReverseMap().ForMember(dst => dst.PasswordHash, opt => opt.MapFrom(src => src.Password));
             CreateMap<User, LoginRequestDto>().ReverseMap();
             CreateMap<User, UpdateUserDto>().ReverseMap();
             CreateMap<User, LoginDataDto>().ReverseMap();
+            CreateMap<UpdateUserDto, UserGetDto>().ReverseMap();
+            CreateMap<User, UserGetDto>().ReverseMap();
 
             CreateMap<Shift, NewShiftDto>().ReverseMap();
 

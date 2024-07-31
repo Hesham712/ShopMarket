@@ -17,6 +17,6 @@ namespace Finance_WebApi.Dtos.Account
 
         [Required(ErrorMessage = "Password Field is required")]
         [DataType(DataType.Password)]
-        public string? PasswordHash { get; set; }
+        public string? Password { get; set; }
     }
 }

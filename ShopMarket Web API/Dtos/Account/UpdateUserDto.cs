@@ -10,9 +10,8 @@ namespace ShopMarket_Web_API.Dtos.Account
         [Required(ErrorMessage = "Email Field is required")]
         [EmailAddress]
         public string? Email { get; set; }
-
-        [Required(ErrorMessage = "Password Field is required")]
-        [DataType(DataType.Password)]
-        public string? Password { get; set; }
+        [Required(ErrorMessage = "Phone Number Field is required")]
+        [Phone]
+        public string? PhoneNumber { get; set; }
     }
 }
