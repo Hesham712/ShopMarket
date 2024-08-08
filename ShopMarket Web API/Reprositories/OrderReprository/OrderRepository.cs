@@ -80,10 +80,8 @@ namespace ShopMarket_Web_API.Reprository.OrderReprository
             }
         }
 
-        public Task<IList<Order>> GetOrderAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IList<OrderDto>> GetOrderAsync()=>
+            _mapper.Map<List<OrderDto>>(await _context.Orders.ToListAsync());
 
         public async Task<OrderByIdDto> GetOrderByIdAsync(int orderId)
         {

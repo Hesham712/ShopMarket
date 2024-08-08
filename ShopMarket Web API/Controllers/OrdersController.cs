@@ -48,5 +48,19 @@ namespace ShopMarket_Web_API.Controllers
                 return NotFound($"{ex.Message}");
             }
         }
+
+        [HttpGet("GetAllOrder")]
+        public async Task<IActionResult> GetOrderId()
+        {
+            try
+            {
+                var orders = await _orderRepository.GetOrderAsync();
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace ShopMarket_Web_API.Reprository.OrderReprository
     public interface IOrderRepository
     {
         Task<List<OrderItemsDetailDto>> CreateOrderAsync(List<OrderItemsRequestDto> orderItemsDto, int shiftId);
-        Task<IList<Order>> GetOrderAsync();
+        Task<IList<OrderDto>> GetOrderAsync();
         Task<OrderByIdDto> GetOrderByIdAsync(int orderId);
 
     }
