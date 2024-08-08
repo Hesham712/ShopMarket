@@ -30,6 +30,8 @@ namespace ShopMarket_Web_API.Helper.Mapper
             CreateMap<OrderItem, OrderItemsRequestDto>().ReverseMap();
             CreateMap<OrderItem, OrderItemsDetailDto>().ReverseMap();
 
+            CreateMap<Order, OrderByIdDto>().ReverseMap();
+
         }
     }
 }

@@ -87,15 +87,12 @@ namespace ShopMarket_Web_API.Reprository.OrderReprository
 
         public async Task<OrderByIdDto> GetOrderByIdAsync(int orderId)
         {
-            //var order = await _context.Orders.FindAsync(orderId);
-            //if(order == null)
-            //    throw new InvalidOperationException($"Order with ID {orderId} not found.");
+            var order = await _context.Orders.Include(p=>p.OrderItems).FirstOrDefaultAsync(p=>p.Id == orderId);
+            
+            if (order is null)
+                throw new InvalidOperationException($"Order with ID {orderId} not found.");
 
-            ////order = _mapper.Map<OrderByIdDto>(order);
-
-            //return order;
-            throw new NotImplementedException();
-
+            return _mapper.Map<OrderByIdDto>(order);
         }
     }
 }

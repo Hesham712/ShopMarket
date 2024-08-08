@@ -6,13 +6,12 @@ namespace ShopMarket_Web_API.Dtos.Order
     public class OrderByIdDto
     {
         [Required]
-        public int OrderId { get; set; }
+        public int Id { get; set; }
         [Required]
         [Range(0,100000)]
         public decimal TotalPrice { get; set; }
         [Required]
         public int ShiftId { get; set; }
-        public IList<OrderItem>? OrderItems { get; set; }
-
+        public IList<OrderItemsDetailDto>? OrderItems { get; set; }
     }
 }
