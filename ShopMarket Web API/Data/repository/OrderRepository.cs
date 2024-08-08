@@ -27,8 +27,8 @@ namespace ShopMarket_Web_API.Data.repository
                 try
                 {
                     //chech if shift is active
-                    var shiftExist = await _context.Shifts.FirstOrDefaultAsync(m => m.Id == shiftId && m.EndShift == null);
-                    if (shiftExist == null)
+                    var shift = await _context.Shifts.FirstOrDefaultAsync(m => m.Id == shiftId && m.EndShift == null);
+                    if (shift is null)
                         throw new ArgumentException("Shift does not exist or has already ended.");
                     //create new order
                     var order = new Order()
@@ -38,49 +38,40 @@ namespace ShopMarket_Web_API.Data.repository
                     await _context.AddAsync(order);
                     await _context.SaveChangesAsync();
 
+                    var itemOrder = new List<OrderItem>();
+
                     //check if productId not found and calc total price of order
                     foreach (var item in orderItemsDto)
                     {
                         var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == item.ProductId);
 
-                        if (product == null)
-                        {
+                        if (product is null)
                             throw new InvalidOperationException($"Product with ID {item.ProductId} not found.");
-                        }
+
                         if (product.Stock < item.Quantity)
-                        {
                             throw new InvalidOperationException($"Insufficient stock for product ID {item.ProductId}. Available: {product.Stock}, Requested: {item.Quantity}");
-                        }
-                    }
-                    //update stock product
-                    foreach (var item in orderItemsDto)
-                    {
-                        var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == item.ProductId);
+
                         product.Stock -= item.Quantity;
-                    }
-                    //calc total order price
-                    foreach (var item in orderItemsDto)
-                    {
-                        var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == item.ProductId);
                         order.TotalPrice += product.Price * item.Quantity;
+                        itemOrder.Add(new OrderItem()
+                        {
+                            ProductId = item.ProductId,
+                            Quantity = item.Quantity,
+                            OrderId = order.Id,
+                            Price = item.Quantity * _productRepository.GetProductByIdAsync(item.ProductId).Result.Price
+                        });
                     }
-                    shiftExist.TotalCash += order.TotalPrice;
+                    shift.TotalCash += order.TotalPrice;
 
-                    var itemOrder = new List<OrderItem>();
-
-                    orderItemsDto.ForEach(x => itemOrder.Add(new OrderItem()
-                    {
-                        ProductId = x.ProductId,
-                        Quantity = x.Quantity,
-                        OrderId = order.Id,
-                        Price = x.Quantity * _productRepository.GetProductByIdAsync(x.ProductId).Result.Price
-                    }));
                     await _context.OrderItems.AddRangeAsync(itemOrder);
                     await _context.SaveChangesAsync();
+
                     var ListOfItems = _mapper.Map<List<OrderItemsDetailDto>>(itemOrder);
+
+                    transaction.Commit();
                     return ListOfItems;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     await transaction.RollbackAsync();
                     throw;
