@@ -1,4 +1,4 @@
-﻿namespace ShopMarket_Web_API.Data.Enum
+﻿namespace ShopMarket_Web_API.Dtos.Enum
 {
     public enum StatusShift
     {

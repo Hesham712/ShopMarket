@@ -23,6 +23,7 @@ namespace ShopMarket_Web_API.Mapper
             CreateMap<User, LoginDataDto>().ReverseMap();
             CreateMap<UpdateUserDto, UserGetDto>().ReverseMap();
             CreateMap<User, UserGetDto>().ReverseMap();
+            CreateMap<string, ForgetPasswordDataDto>().ReverseMap();
 
             CreateMap<Shift, NewShiftDto>().ReverseMap();
 

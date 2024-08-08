@@ -30,45 +30,39 @@ namespace ShopMarket_Web_API.Data.repository
             var user = await _userManager.FindByIdAsync(UserId.ToString());
             if (user != null)
             {
-                var oldPassExist = await _userManager.CheckPasswordAsync(user,userPassDto.OldPassword);
-                if (oldPassExist)
+                var oldPassExist = await _userManager.CheckPasswordAsync(user, userPassDto.OldPassword);
+                if (oldPassExist && userPassDto.NewPassword == userPassDto.ConfirmPassword)
                 {
-                    if (userPassDto.NewPassword == userPassDto.ConfirmPassword)
-                    {
-                        await _userManager.ChangePasswordAsync(user, userPassDto.OldPassword, userPassDto.NewPassword);
-                        await _context.SaveChangesAsync();
-                        return true;
-                    }
+                    await _userManager.ChangePasswordAsync(user, userPassDto.OldPassword, userPassDto.NewPassword);
+                    await _context.SaveChangesAsync();
+                    return true;
                 }
                 return false;
             }
             else
-            {
                 return false;
-            }
         }
 
         public async Task<string> ConfirmEmail(int userId, string token)
         {
-            var userDetails = await _userManager.FindByIdAsync(userId.ToString());
-            if (userId == null || token == null)
-                return "Link expired";
-            else if (userDetails == null)
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            if (user is null)
                 return "User not found";
-            else
-            {
-                var result = await _userManager.ConfirmEmailAsync(userDetails, token);
-                if (result.Succeeded)
-                    return "Thank you for confirming your email";
-                return "Email not confirmed";
-            }
+
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+
+            if (result.Succeeded)
+                return "Thank you for confirming your email";
+
+            return "Email not confirmed";
         }
 
-        public async Task<User> CreateUser(SignUpUserDto userModel)
+        public async Task<UserGetDto> CreateUser(SignUpUserDto userModel)
         {
-            var userExist = await _userManager.FindByEmailAsync(userModel.Email);
+            var userExists = await _userManager.FindByEmailAsync(userModel.Email);
 
-            if (userExist is not null)
+            if (userExists is not null)
                 throw new ArgumentException("Email is taken");
 
             var user = _mapper.Map<User>(userModel);
@@ -77,16 +71,16 @@ namespace ShopMarket_Web_API.Data.repository
             {
                 var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 await _emailService.SendEmailAsync(userModel.Email, "Confirm Your Email", $"Please confirm your account YOur token : {emailConfirmationToken}", true);
-                return (user);
+                return _mapper.Map<UserGetDto>(user);
             }
-            throw new ArgumentException(result.ToString());
 
+            throw new ArgumentException(result.ToString());
         }
 
         public async Task<bool> DeleteUser(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
-            if (user != null)
+            if (user is not null)
             {
                 var result = await _userManager.SetLockoutEnabledAsync(user, true);
                 if (result.Succeeded)
@@ -95,16 +89,53 @@ namespace ShopMarket_Web_API.Data.repository
             return false;
         }
 
-        public async Task<IList<User>> GetActiveUserAsync() =>
-            await _userManager.Users.Where(m => m.LockoutEnabled == false).ToListAsync();
+        public async Task ForgetPasswordAsync(string Email)
+        {
+            var user = await _userManager.FindByEmailAsync(Email);
+            if (user is not null)
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                if (token is null)
+                    throw new ArgumentException("token not created");
 
-        public async Task<IList<User>> GetInActiveUserAsync() =>
-            await _userManager.Users.Where(m => m.LockoutEnabled == true).ToListAsync();
+                await _emailService.SendEmailAsync(Email, "reset Your Password", $"Please reset Your Password YOur token : {token}", true);
+                user.ResetPasswordToken = token;
+                await _userManager.UpdateAsync(user);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new ArgumentException("Email is not correct");
+            }
+        }
+
+        public async Task<IList<UserGetDto>> GetActiveUsersAsync() =>
+             _mapper.Map<List<UserGetDto>>(await _userManager.Users.Where(m => m.LockoutEnabled == false).ToListAsync());
+
+        public async Task<IList<UserGetDto>> GetInActiveUsersAsync() =>
+            _mapper.Map<List<UserGetDto>>(await _userManager.Users.Where(m => m.LockoutEnabled == true).ToListAsync());
+
+        public async Task<bool> ResetPasswordAsync(int UserId,ResetPasswordDto resetPasswordDto)
+        {
+            var user = await _userManager.FindByIdAsync(UserId.ToString());
+            if(user is not null)
+            {
+                if(user.ResetPasswordToken == resetPasswordDto.Token)
+                {
+                    await _userManager.ResetPasswordAsync(user,resetPasswordDto.Token,resetPasswordDto.NewPassword);
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                throw new ArgumentException("Token not valid");
+            }
+            return false;
+        }
 
         public async Task<UserGetDto> UpdateUser(int UserId, UpdateUserDto userDto)
         {
             var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == UserId);
-            if (user == null)
+
+            if (user is null)
                 return null;
 
             _mapper.Map<UpdateUserDto, User>(userDto, user);

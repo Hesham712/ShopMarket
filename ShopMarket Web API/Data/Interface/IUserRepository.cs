@@ -6,12 +6,14 @@ namespace ShopMarket_Web_API.Data.Interface
 {
     public interface IUserRepository
     {
-        public Task<User> CreateUser(SignUpUserDto user);
-        public Task<IList<User>> GetActiveUserAsync();
-        public Task<IList<User>> GetInActiveUserAsync();
+        public Task<UserGetDto> CreateUser(SignUpUserDto user);
+        public Task<IList<UserGetDto>> GetActiveUsersAsync();
+        public Task<IList<UserGetDto>> GetInActiveUsersAsync();
         public Task<bool> DeleteUser(string userName);
         public Task<UserGetDto> UpdateUser(int UserId,UpdateUserDto user);
         public Task<bool> ChangePasswordAsync(int UserId, UpdateUserPasswordDto userPassDto);
+        public Task ForgetPasswordAsync(string Email);
+        public Task<bool> ResetPasswordAsync(int UserId,ResetPasswordDto resetPasswordDto);
         public Task<string> ConfirmEmail(int userId,string token);
     }
 }
