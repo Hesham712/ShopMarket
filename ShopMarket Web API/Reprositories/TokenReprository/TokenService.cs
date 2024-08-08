@@ -1,6 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using ShopMarket_Web_API.Data.Interface;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprository.Interface;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

@@ -7,10 +7,13 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SendGrid.Helpers.Mail;
 using ShopMarket_Web_API.Data;
-using ShopMarket_Web_API.Data.Interface;
-using ShopMarket_Web_API.Data.repository;
-using ShopMarket_Web_API.Mapper;
+using ShopMarket_Web_API.Helper.Mapper;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprositories.ProductReprository;
+using ShopMarket_Web_API.Reprository.EmailReprository;
+using ShopMarket_Web_API.Reprository.Interface;
+using ShopMarket_Web_API.Reprository.OrderReprository;
+using ShopMarket_Web_API.Reprository.repository;
 using ShopMarket_Web_API.Services;
 
 var builder = WebApplication.CreateBuilder(args);

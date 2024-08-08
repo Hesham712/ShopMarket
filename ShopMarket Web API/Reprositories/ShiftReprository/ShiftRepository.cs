@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using ShopMarket_Web_API.Data.Interface;
+using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Shift;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprository.Interface;
 
-namespace ShopMarket_Web_API.Data.repository
+namespace ShopMarket_Web_API.Reprository.repository
 {
     public class ShiftRepository : IShiftRepository
     {
@@ -37,13 +38,13 @@ namespace ShopMarket_Web_API.Data.repository
                 }
                 return shiftExist;
             }
-            catch (ObjectDisposedException  ex)
+            catch (ObjectDisposedException ex)
             {
                 Console.WriteLine("ObjectDisposedException: " + ex.Message);
                 throw;
             }
 
-            
+
         }
     }
 }

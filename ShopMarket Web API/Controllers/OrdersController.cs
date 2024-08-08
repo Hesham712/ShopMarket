@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShopMarket_Web_API.Data;
-using ShopMarket_Web_API.Data.Interface;
 using ShopMarket_Web_API.Dtos.Order;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprository.OrderReprository;
 
 namespace ShopMarket_Web_API.Controllers
 {

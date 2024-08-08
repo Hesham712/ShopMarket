@@ -1,12 +1,10 @@
 ﻿using Microsoft.Extensions.Options;
 using MimeKit;
-using ShopMarket_Web_API.Configuration;
-using ShopMarket_Web_API.Data.Interface;
 using ShopMarket_Web_API.Models;
 using System.Net;
 using System.Net.Mail;
 
-namespace ShopMarket_Web_API.Data.repository
+namespace ShopMarket_Web_API.Reprository.EmailReprository
 {
     public class EmailService : IEmailService
     {

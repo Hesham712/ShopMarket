@@ -3,12 +3,14 @@ using Finance_WebApi.Dtos.Account;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ShopMarket_Web_API.Data.Interface;
+using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Account;
 using ShopMarket_Web_API.Dtos.Order;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprository.EmailReprository;
+using ShopMarket_Web_API.Reprository.Interface;
 
-namespace ShopMarket_Web_API.Data.repository
+namespace ShopMarket_Web_API.Reprository.repository
 {
     public class UserRepository : IUserRepository
     {
@@ -115,14 +117,14 @@ namespace ShopMarket_Web_API.Data.repository
         public async Task<IList<UserGetDto>> GetInActiveUsersAsync() =>
             _mapper.Map<List<UserGetDto>>(await _userManager.Users.Where(m => m.LockoutEnabled == true).ToListAsync());
 
-        public async Task<bool> ResetPasswordAsync(int UserId,ResetPasswordDto resetPasswordDto)
+        public async Task<bool> ResetPasswordAsync(int UserId, ResetPasswordDto resetPasswordDto)
         {
             var user = await _userManager.FindByIdAsync(UserId.ToString());
-            if(user is not null)
+            if (user is not null)
             {
-                if(user.ResetPasswordToken == resetPasswordDto.Token)
+                if (user.ResetPasswordToken == resetPasswordDto.Token)
                 {
-                    await _userManager.ResetPasswordAsync(user,resetPasswordDto.Token,resetPasswordDto.NewPassword);
+                    await _userManager.ResetPasswordAsync(user, resetPasswordDto.Token, resetPasswordDto.NewPassword);
                     await _context.SaveChangesAsync();
                     return true;
                 }
@@ -138,7 +140,7 @@ namespace ShopMarket_Web_API.Data.repository
             if (user is null)
                 return null;
 
-            _mapper.Map<UpdateUserDto, User>(userDto, user);
+            _mapper.Map(userDto, user);
             var userGetDto = _mapper.Map<UserGetDto>(user);
 
             await _userManager.UpdateAsync(user);

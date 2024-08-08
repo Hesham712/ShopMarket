@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ShopMarket_Web_API.Data.Interface;
 using ShopMarket_Web_API.Dtos.Shift;
+using ShopMarket_Web_API.Reprository.Interface;
 
 namespace ShopMarket_Web_API.Controllers
 {

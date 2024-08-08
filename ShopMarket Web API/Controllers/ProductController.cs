@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ShopMarket_Web_API.Data.Interface;
 using ShopMarket_Web_API.Dtos.Product;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprositories.ProductReprository;
 
 namespace ShopMarket_Web_API.Controllers
 {

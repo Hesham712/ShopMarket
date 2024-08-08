@@ -3,12 +3,11 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SendGrid.Helpers.Mail;
-using ShopMarket_Web_API.Data.Interface;
+using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Product;
-using ShopMarket_Web_API.Mapper;
 using ShopMarket_Web_API.Models;
 
-namespace ShopMarket_Web_API.Data.repository
+namespace ShopMarket_Web_API.Reprositories.ProductReprository
 {
     public class ProductRepository : IProductRepository
     {
@@ -56,7 +55,7 @@ namespace ShopMarket_Web_API.Data.repository
             if (result == null)
                 return null;
 
-            _mapper.Map<ProductUpdatedDto, Product>(productModel, result);
+            _mapper.Map(productModel, result);
             await _context.SaveChangesAsync();
             return result;
         }

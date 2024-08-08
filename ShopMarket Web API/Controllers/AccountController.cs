@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using ShopMarket_Web_API.Data.Interface;
 using ShopMarket_Web_API.Dtos.Account;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprository.EmailReprository;
+using ShopMarket_Web_API.Reprository.Interface;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopMarket_Web_API.Controllers

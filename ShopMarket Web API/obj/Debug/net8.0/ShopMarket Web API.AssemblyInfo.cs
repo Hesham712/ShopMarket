@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShopMarket Web API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2dcd4692b261bb7cc811ec486a928d9fa7c3f17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08aa1d43344ce74de19d82b3499cfa0ba2447da0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShopMarket Web API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShopMarket Web API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

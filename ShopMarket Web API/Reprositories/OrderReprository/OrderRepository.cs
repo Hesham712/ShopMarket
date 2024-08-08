@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
-using ShopMarket_Web_API.Data.Interface;
+using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Order;
 using ShopMarket_Web_API.Models;
+using ShopMarket_Web_API.Reprositories.ProductReprository;
 
-namespace ShopMarket_Web_API.Data.repository
+namespace ShopMarket_Web_API.Reprository.OrderReprository
 {
     public class OrderRepository : IOrderRepository
     {

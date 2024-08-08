@@ -2,7 +2,7 @@
 using ShopMarket_Web_API.Dtos.Product;
 using ShopMarket_Web_API.Models;
 
-namespace ShopMarket_Web_API.Data.Interface
+namespace ShopMarket_Web_API.Reprository.OrderReprository
 {
     public interface IOrderRepository
     {

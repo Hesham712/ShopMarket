@@ -6,7 +6,7 @@ using ShopMarket_Web_API.Dtos.Product;
 using ShopMarket_Web_API.Dtos.Shift;
 using ShopMarket_Web_API.Models;
 
-namespace ShopMarket_Web_API.Mapper
+namespace ShopMarket_Web_API.Helper.Mapper
 {
 
     public class MappingProfile : Profile
