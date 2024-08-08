@@ -12,8 +12,8 @@ using ShopMarket_Web_API.Data;
 namespace ShopMarket_Web_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240724212040_updateDb")]
-    partial class updateDb
+    [Migration("20240808081431_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,13 +46,13 @@ namespace ShopMarket_Web_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "45a58052-99d8-4563-96b6-b523c33a84ef",
+                            Id = "fa27348e-be87-4b6f-94d8-1aa2929c7e8f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8099d2e9-7203-47c8-be80-634d8b69d916",
+                            Id = "274a4daf-fd0d-41dc-be23-da457b45c1c2",
                             Name = "User",
                             NormalizedName = "USER"
                         });

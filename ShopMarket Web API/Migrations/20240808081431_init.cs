@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ShopMarket_Web_API.Migrations
 {
     /// <inheritdoc />
-    public partial class initDb : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -322,8 +322,8 @@ namespace ShopMarket_Web_API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "149f2592-8cc9-4575-a45b-9199fe6690ac", null, "Admin", "ADMIN" },
-                    { "d16d3b2a-5fab-4a90-bcb4-f9ef3497cefb", null, "User", "USER" }
+                    { "274a4daf-fd0d-41dc-be23-da457b45c1c2", null, "User", "USER" },
+                    { "fa27348e-be87-4b6f-94d8-1aa2929c7e8f", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(
