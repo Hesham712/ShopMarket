@@ -27,7 +27,7 @@ namespace ShopMarket_Web_API.Controllers
                 return BadRequest(ModelState);
             
             var result = await _productRepository.CreateAsync(productModel);
-            return Ok(_mapper.Map<ProductCreateDto>(result));
+            return Ok(result);
         }
 
         [HttpDelete(("{productId}"))]
@@ -35,11 +35,11 @@ namespace ShopMarket_Web_API.Controllers
         {
             if(!ModelState.IsValid) return BadRequest(ModelState.ToString());
 
-            var ProductResult = await _productRepository.DeleteAsync(productId);
-            if(ProductResult != null) 
-                return Ok($"Product with Name : {ProductResult.Name} Deleted");
+            var ProductDeleted = await _productRepository.DeleteAsync(productId);
+            if(ProductDeleted) 
+                return Ok($"Product Deleted successfully");
 
-            return BadRequest("Product Id not correct");
+            return NotFound(new { Message = $"Product with ID {productId} was not found." });
         }
 
         [HttpGet("DeletedProducts")]
@@ -50,14 +50,27 @@ namespace ShopMarket_Web_API.Controllers
             var result = await _productRepository.GetDeletedProductsAsync();
             return Ok(result);
         }
-        [HttpGet("StockProduct")]
+        [HttpGet("StockProducts")]
         public async Task<IActionResult> GetStockProducts()
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            var result = await _productRepository.GetAllProductsAsync();
+            var result = await _productRepository.GetStockProductsAsync();
             return Ok(result);
         }
+
+        [HttpGet("{productId}")]
+        public async Task<IActionResult> GetProductByID([FromRoute] int productId)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var result = await _productRepository.GetProductByIdAsync(productId);
+            if (result is not null)
+                return Ok(result);
+
+            return NotFound(new { Message = $"Product with ID {productId} was not found." });
+        }
+
         [HttpPut("{ProductId}")]
         public async Task<IActionResult> Update([FromRoute] int ProductId,[FromBody] ProductUpdatedDto productDto)
         {

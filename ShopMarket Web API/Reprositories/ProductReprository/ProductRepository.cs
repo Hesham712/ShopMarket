@@ -20,36 +20,36 @@ namespace ShopMarket_Web_API.Reprositories.ProductReprository
             _mapper = mapper;
         }
 
-        public async Task<Product> CreateAsync(ProductCreateDto productModel)
+        public async Task<ProductDetailsDto> CreateAsync(ProductCreateDto productModel)
         {
             var product = _mapper.Map<Product>(productModel);
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
-            return product;
+            return _mapper.Map<ProductDetailsDto>(product);
         }
 
-        public async Task<Product> DeleteAsync(int productId)
+        public async Task<bool> DeleteAsync(int productId)
         {
             var result = await _context.Products.FirstOrDefaultAsync(m => m.Id == productId);
             if (result != null)
             {
                 result.IsDeleted = true;
                 await _context.SaveChangesAsync();
-                return result;
+                return true;
             }
-            return null;
+            return false;
         }
 
-        public async Task<IList<Product>> GetDeletedProductsAsync() =>
-            await _context.Products.Where(m => m.IsDeleted == true).ToListAsync();
+        public async Task<IList<ProductDetailsDto>> GetDeletedProductsAsync() =>
+            _mapper.Map<List<ProductDetailsDto>>(await _context.Products.Where(m => m.IsDeleted == false).ToListAsync());
 
-        public async Task<IList<Product>> GetAllProductsAsync() =>
-            await _context.Products.Where(m => m.IsDeleted == false).ToListAsync();
+        public async Task<IList<ProductDetailsDto>> GetStockProductsAsync() =>
+            _mapper.Map<List<ProductDetailsDto>>(await _context.Products.Where(m => m.IsDeleted == false).ToListAsync());
 
         public async Task<bool> IsProductExist(int productId) =>
              await _context.Products.AnyAsync(m => m.Id == productId && m.IsDeleted == false);
 
-        public async Task<Product> UpdateAsync(int productId, ProductUpdatedDto productModel)
+        public async Task<ProductDetailsDto> UpdateAsync(int productId, ProductUpdatedDto productModel)
         {
             var result = await _context.Products.FirstOrDefaultAsync(m => m.Id == productId);
             if (result == null)
@@ -57,11 +57,11 @@ namespace ShopMarket_Web_API.Reprositories.ProductReprository
 
             _mapper.Map(productModel, result);
             await _context.SaveChangesAsync();
-            return result;
+            return _mapper.Map<ProductDetailsDto>(result);
         }
 
-        public async Task<Product> GetProductByIdAsync(int productId) =>
-            await _context.Products.FirstOrDefaultAsync(m => m.Id == productId);
+        public async Task<ProductDetailsDto> GetProductByIdAsync(int productId) =>
+            _mapper.Map<ProductDetailsDto>(await _context.Products.FirstOrDefaultAsync(m => m.Id == productId));
 
     }
 }

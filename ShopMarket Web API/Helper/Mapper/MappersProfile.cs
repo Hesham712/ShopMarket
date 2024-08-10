@@ -16,6 +16,8 @@ namespace ShopMarket_Web_API.Helper.Mapper
             CreateMap<Product, ProductCreateDto>().ReverseMap();
             CreateMap<Product, ProductDetailsDto>().ReverseMap();
             CreateMap<Product, ProductUpdatedDto>().ReverseMap();
+            CreateMap<ProductDetailsDto, ProductCreateDto>().ReverseMap();
+            CreateMap<ProductDetailsDto, ProductUpdatedDto>().ReverseMap();
 
             CreateMap<User, SignUpUserDto>().ReverseMap().ForMember(dst => dst.PasswordHash, opt => opt.MapFrom(src => src.Password));
             CreateMap<User, LoginRequestDto>().ReverseMap();

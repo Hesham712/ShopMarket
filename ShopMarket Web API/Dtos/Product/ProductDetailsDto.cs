@@ -14,7 +14,5 @@ namespace ShopMarket_Web_API.Dtos.Product
         [Range(0, int.MaxValue)]
         public decimal Price { get; set; }
         public decimal DiscountPercentage { get; set; } = 0;
-        public bool IsDeleted { get; set; } = false;
-        public IList<OrderItem>? OrderItems { get; set; }
     }
 }
