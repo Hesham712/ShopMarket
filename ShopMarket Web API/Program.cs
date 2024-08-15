@@ -13,6 +13,7 @@ using ShopMarket_Web_API.Reprositories.ProductReprository;
 using ShopMarket_Web_API.Reprository.EmailReprository;
 using ShopMarket_Web_API.Reprository.Interface;
 using ShopMarket_Web_API.Reprository.OrderReprository;
+using ShopMarket_Web_API.Reprository.RefundReprository;
 using ShopMarket_Web_API.Reprository.repository;
 using ShopMarket_Web_API.Services;
 
@@ -106,6 +107,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IShiftRepository, ShiftRepository>();
+builder.Services.AddScoped<IRefundRepository, RefundRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();

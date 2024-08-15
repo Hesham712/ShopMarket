@@ -3,6 +3,7 @@ using Finance_WebApi.Dtos.Account;
 using ShopMarket_Web_API.Dtos.Account;
 using ShopMarket_Web_API.Dtos.Order;
 using ShopMarket_Web_API.Dtos.Product;
+using ShopMarket_Web_API.Dtos.Refund;
 using ShopMarket_Web_API.Dtos.Shift;
 using ShopMarket_Web_API.Models;
 
@@ -34,6 +35,10 @@ namespace ShopMarket_Web_API.Helper.Mapper
 
             CreateMap<Order, OrderByIdDto>().ReverseMap();
             CreateMap<Order, OrderDto>().ReverseMap();
+
+            CreateMap<RefundItemsDetailDto, RefundItem>().ReverseMap();
+            CreateMap<Refund, RefundDto>().ReverseMap();
+            CreateMap<Refund, RefundDetailsDto>().ReverseMap();
 
         }
     }
