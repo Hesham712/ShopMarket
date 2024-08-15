@@ -44,7 +44,7 @@ namespace ShopMarket_Web_API.Reprository.OrderReprository
                     //check if productId not found and calc total price of order
                     foreach (var item in orderItemsDto)
                     {
-                        var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == item.ProductId);
+                        var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == item.ProductId && p.IsDeleted == false);
 
                         if (product is null)
                             throw new InvalidOperationException($"Product with ID {item.ProductId} not found.");
