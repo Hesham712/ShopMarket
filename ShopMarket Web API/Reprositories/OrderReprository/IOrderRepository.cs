@@ -9,6 +9,7 @@ namespace ShopMarket_Web_API.Reprository.OrderReprository
         Task<List<OrderItemsDetailDto>> CreateOrderAsync(List<OrderItemsRequestDto> orderItemsDto, int shiftId);
         Task<IList<OrderDto>> GetOrderAsync();
         Task<OrderByIdDto> GetOrderByIdAsync(int orderId);
+        Task<bool> OrderExist(int orderId);
 
     }
 }
