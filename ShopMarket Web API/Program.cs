@@ -136,4 +136,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+
 app.Run();

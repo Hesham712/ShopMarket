@@ -71,11 +71,13 @@ namespace ShopMarket_Web_API.Reprository.repository
             var result = await _userManager.CreateAsync(user, userModel.Password);
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, UserRoles.User);
+
                 var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 await _emailService.SendEmailAsync(userModel.Email, "Confirm Your Email", $"Please confirm your account YOur token : {emailConfirmationToken}", true);
+                
                 return _mapper.Map<UserGetDto>(user);
             }
-
             throw new ArgumentException(result.ToString());
         }
 
