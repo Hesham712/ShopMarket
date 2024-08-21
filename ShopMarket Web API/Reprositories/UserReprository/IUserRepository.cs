@@ -7,6 +7,8 @@ namespace ShopMarket_Web_API.Reprository.Interface
     public interface IUserRepository
     {
         public Task<UserGetDto> CreateUser(SignUpUserDto user);
+        public Task<LoginDataDto> Login(LoginRequestDto loginDto);
+        public Task<LoginDataDto> SignUp(SignUpUserDto model);
         public Task<IList<UserGetDto>> GetActiveUsersAsync();
         public Task<IList<UserGetDto>> GetInActiveUsersAsync();
         public Task<bool> DeleteUser(string userName);

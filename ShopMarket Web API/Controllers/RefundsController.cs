@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShopMarket_Web_API.Dtos.Order;
 using ShopMarket_Web_API.Dtos.Refund;
@@ -7,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShopMarket_Web_API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RefundsController : ControllerBase
@@ -41,6 +43,7 @@ namespace ShopMarket_Web_API.Controllers
         }
 
         [HttpGet("{RefundId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetRefundByIdAsync([FromRoute] int RefundId)
         {
             return Ok(await _refundRepository.GetRefundByIdAsync(RefundId));

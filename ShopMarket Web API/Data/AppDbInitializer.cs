@@ -20,16 +20,15 @@ namespace ShopMarket_Web_API.Data
 
                 //Users
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<User>>();
-                string adminUserEmail = "admin@martket.com";
 
-                var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                var adminUser = await userManager.FindByEmailAsync("admin@martket.com");
                 if (adminUser == null)
                 {
                     var newAdminUser = new User()
                     {
                         Name = "Admin",
                         UserName = "admin",
-                        Email = adminUserEmail,
+                        Email = "admin@martket.com",
                         EmailConfirmed = true
                     };
                     await userManager.CreateAsync(newAdminUser, "Admin@1");

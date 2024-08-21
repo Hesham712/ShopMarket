@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 using ShopMarket_Web_API.Models;
 using ShopMarket_Web_API.Reprository.Interface;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,36 +12,39 @@ namespace ShopMarket_Web_API.Services
     {
         private readonly IConfiguration _config;
         private readonly SymmetricSecurityKey _key;
+        private readonly UserManager<User> _userManager;
 
-        public TokenService(IConfiguration config)
+
+        public TokenService(IConfiguration config, UserManager<User> userManager)
         {
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SigningKey"]));
+            _userManager = userManager;
         }
-        public string CreateToken(User user)
+        public async Task<string> CreateToken(User user)
         {
-            var claims = new List<Claim>
+            var userRoles = await _userManager.GetRolesAsync(user);
+            var authClaims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.GivenName, user.UserName)
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
             };
 
-            var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
+            foreach (var userRole in userRoles)
             {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7),
-                SigningCredentials = creds,
-                Issuer = _config["JWT:Issuer"],
-                Audience = _config["JWT:Audience"]
-            };
+                authClaims.Add(new Claim(ClaimTypes.Role, userRole));
+            }
 
-            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = new JwtSecurityToken
+            (
+                issuer: _config["JWT:Issuer"],
+                audience: _config["JWT:Audience"],
+                expires: DateTime.Now.AddHours(3),
+                claims: authClaims,
+                signingCredentials: new SigningCredentials(_key, SecurityAlgorithms.HmacSha256)
+            );
 
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            return tokenHandler.WriteToken(token);
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

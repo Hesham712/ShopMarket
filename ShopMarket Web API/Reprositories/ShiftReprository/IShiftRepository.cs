@@ -7,6 +7,6 @@ namespace ShopMarket_Web_API.Reprository.Interface
     {
         Task<bool> isActiveShift(int ShiftId);
         Task<Shift> OpenShift(NewShiftDto shiftDto);
-        //Task<Shift> CloseShift(int UserId);
+        Task<bool> CloseShift(string UserName);
     }
 }

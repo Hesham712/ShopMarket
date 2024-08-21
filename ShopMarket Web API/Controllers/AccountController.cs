@@ -1,18 +1,26 @@
 ﻿using AutoMapper;
 using Finance_WebApi.Dtos.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.IdentityModel.Tokens;
+using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Account;
 using ShopMarket_Web_API.Models;
 using ShopMarket_Web_API.Reprository.EmailReprository;
 using ShopMarket_Web_API.Reprository.Interface;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace ShopMarket_Web_API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
@@ -35,47 +43,31 @@ namespace ShopMarket_Web_API.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto loginDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var user = await _userManager.Users.FirstOrDefaultAsync(m => m.UserName == loginDto.UserName.ToLower());
 
-            if (user == null)
-                return Unauthorized("Invalid UserName!");
+            var loginResult = await _userRepository.Login(loginDto);
 
-            var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
-
-            if (!result.Succeeded)
-                return Unauthorized("Invalid username and/or Password !");
-            var resultData = _mapper.Map<LoginDataDto>(user);
-            resultData.Token = _tokenService.CreateToken(user);
-            return Ok(resultData);
-
+            return Ok(loginResult);
         }
+
         [HttpPost("SignUp")]
+        [AllowAnonymous]
         public async Task<IActionResult> SignUp([FromBody] SignUpUserDto model)
         {
-            try
-            {
-                var userGetDto = await _userRepository.CreateUser(model);
-                var user = _mapper.Map<User>(userGetDto);
-                //_mapper.Map<UserGetDto, User>(user, model);
-                if (user != null)
-                {
-                    var resultData = _mapper.Map<LoginDataDto>(user);
-                    resultData.Token = _tokenService.CreateToken(user);
-                    return Ok(resultData);
-                }
-                return BadRequest("not created");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.InnerException.Message ?? ex.Message.ToString());
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var SignUpResult = await _userRepository.SignUp(model);
+
+            return Ok(SignUpResult);
         }
 
         [HttpGet("GetActiveUser")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> GetActiveUser()
         {
             var result = await _userRepository.GetActiveUsersAsync();
@@ -86,6 +78,7 @@ namespace ShopMarket_Web_API.Controllers
         }
 
         [HttpGet("GetInActiveUser")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> GetInActiveUser()
         {
             var result = await _userRepository.GetInActiveUsersAsync();
@@ -96,6 +89,7 @@ namespace ShopMarket_Web_API.Controllers
         }
 
         [HttpPost("ConfirmEmail")]
+        [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail([FromBody][Required] int UserId, string token)
         {
             if (!ModelState.IsValid)
@@ -116,6 +110,7 @@ namespace ShopMarket_Web_API.Controllers
         }
 
         [HttpPost("Delete")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Delete([FromBody] string UserName)
         {
             if (!ModelState.IsValid)

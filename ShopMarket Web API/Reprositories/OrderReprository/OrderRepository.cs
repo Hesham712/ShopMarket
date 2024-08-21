@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Order;
@@ -21,20 +21,21 @@ namespace ShopMarket_Web_API.Reprository.OrderReprository
             _mapper = mapper;
         }
 
-        public async Task<List<OrderItemsDetailDto>> CreateOrderAsync(List<OrderItemsRequestDto> orderItemsDto, int shiftId)
+        public async Task<List<OrderItemsDetailDto>> CreateOrderAsync(List<OrderItemsRequestDto> orderItemsDto, int UserId)
         {
             using (var transaction = await _context.Database.BeginTransactionAsync())
             {
                 try
                 {
+                    
                     //chech if shift is active
-                    var shift = await _context.Shifts.FirstOrDefaultAsync(m => m.Id == shiftId && m.EndShift == null);
+                    var shift = await _context.Shifts.FirstOrDefaultAsync(m => m.EndShift == null && m.UserId == UserId);
                     if (shift is null)
                         throw new ArgumentException("Shift does not exist or has already ended.");
                     //create new order
                     var order = new Order()
                     {
-                        ShiftId = shiftId
+                        ShiftId = shift.Id
                     };
                     await _context.AddAsync(order);
                     await _context.SaveChangesAsync();

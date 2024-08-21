@@ -9,6 +9,7 @@ using ShopMarket_Web_API.Dtos.Order;
 using ShopMarket_Web_API.Models;
 using ShopMarket_Web_API.Reprository.EmailReprository;
 using ShopMarket_Web_API.Reprository.Interface;
+using ShopMarket_Web_API.Services;
 
 namespace ShopMarket_Web_API.Reprository.repository
 {
@@ -17,14 +18,18 @@ namespace ShopMarket_Web_API.Reprository.repository
         private readonly UserManager<User> _userManager;
         private readonly ApplicationDbContext _context;
         private readonly IEmailService _emailService;
+        private readonly SignInManager<User> _signInManager;
+        private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
 
-        public UserRepository(IEmailService emailService, UserManager<User> userManager, IMapper mapper, ApplicationDbContext context)
+        public UserRepository(IEmailService emailService, UserManager<User> userManager, IMapper mapper, ApplicationDbContext context, SignInManager<User> signInManager, ITokenService tokenService)
         {
             _emailService = emailService;
             _userManager = userManager;
             _mapper = mapper;
             _context = context;
+            _signInManager = signInManager;
+            _tokenService = tokenService;
         }
 
         public async Task<bool> ChangePasswordAsync(int UserId, UpdateUserPasswordDto userPassDto)
@@ -119,6 +124,28 @@ namespace ShopMarket_Web_API.Reprository.repository
         public async Task<IList<UserGetDto>> GetInActiveUsersAsync() =>
             _mapper.Map<List<UserGetDto>>(await _userManager.Users.Where(m => m.LockoutEnabled == true).ToListAsync());
 
+        public async Task<LoginDataDto> Login(LoginRequestDto loginDto)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(m => m.UserName == loginDto.UserName.ToLower());
+
+            if (user == null)
+                throw new ArgumentException("Invalid UserName!");
+            else if (user.EmailConfirmed == false)
+            {
+                throw new ArgumentException("Please confirm email!");
+            }
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if (!result.Succeeded)
+                throw new ArgumentException("Invalid username and/or Password !");
+
+            var resultData = _mapper.Map<LoginDataDto>(user);
+            resultData.Token = await _tokenService.CreateToken(user);
+
+            return resultData;
+        }
+
         public async Task<bool> ResetPasswordAsync(int UserId, ResetPasswordDto resetPasswordDto)
         {
             var user = await _userManager.FindByIdAsync(UserId.ToString());
@@ -133,6 +160,26 @@ namespace ShopMarket_Web_API.Reprository.repository
                 throw new ArgumentException("Token not valid");
             }
             return false;
+        }
+
+        public async Task<LoginDataDto> SignUp(SignUpUserDto model)
+        {
+            try
+            {
+                var userGetDto = await CreateUser(model);
+                var user = _mapper.Map<User>(userGetDto);
+                if (user != null)
+                {
+                    var resultData = _mapper.Map<LoginDataDto>(user);
+                    resultData.Token = await _tokenService.CreateToken(user);
+                    return resultData;
+                }
+                throw new ArgumentException("not created");
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message.ToString());
+            }
         }
 
         public async Task<UserGetDto> UpdateUser(int UserId, UpdateUserDto userDto)

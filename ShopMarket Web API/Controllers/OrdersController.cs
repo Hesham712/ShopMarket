@@ -1,13 +1,11 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Order;
-using ShopMarket_Web_API.Models;
 using ShopMarket_Web_API.Reprository.OrderReprository;
 
 namespace ShopMarket_Web_API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OrdersController : ControllerBase
@@ -19,7 +17,7 @@ namespace ShopMarket_Web_API.Controllers
             _orderRepository = orderRepository;
         }
 
-        [HttpPost("{ShiftId}")]
+        [HttpPost("{UserId}")]
         public async Task<IActionResult> CreateOrder([FromBody] List<OrderItemsRequestDto> orderDto, [FromRoute] int ShiftId)
         {
             if (!ModelState.IsValid)
@@ -50,7 +48,7 @@ namespace ShopMarket_Web_API.Controllers
         }
 
         [HttpGet("GetAllOrder")]
-        public async Task<IActionResult> GetOrderId()
+        public async Task<IActionResult> GetAllOrder()
         {
             try
             {

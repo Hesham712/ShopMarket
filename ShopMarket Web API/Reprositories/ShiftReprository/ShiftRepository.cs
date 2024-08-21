@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
+using Org.BouncyCastle.Asn1.Cms;
 using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Shift;
 using ShopMarket_Web_API.Models;
@@ -18,11 +20,24 @@ namespace ShopMarket_Web_API.Reprository.repository
             _mapper = mapper;
         }
 
-        public async Task<bool> isActiveShift(int ShiftId)
+        public async Task<bool> CloseShift(string UserName)
         {
-            var shiftResult = await _context.Shifts.AnyAsync(m => m.Id == ShiftId && m.EndShift == null);
-            return shiftResult;
+            var shift = await _context.Shifts.Include(x=>x.User).FirstOrDefaultAsync(x=>x.User.UserName == UserName);
+            if (shift != null)
+            {
+                if(shift.EndShift == null)
+                {
+                    shift.EndShift = DateTime.Now;
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                throw new ArgumentException("Shift already ended.");
+            }
+            throw new ArgumentException("Shift does not exist or has already ended.");
         }
+
+        public async Task<bool> isActiveShift(int ShiftId)=>
+            await _context.Shifts.AnyAsync(m => m.Id == ShiftId && m.EndShift == null);
 
         public async Task<Shift> OpenShift(NewShiftDto shiftDto)
         {
@@ -43,8 +58,6 @@ namespace ShopMarket_Web_API.Reprository.repository
                 Console.WriteLine("ObjectDisposedException: " + ex.Message);
                 throw;
             }
-
-
         }
     }
 }

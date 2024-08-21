@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ShopMarket_Web_API.Data;
 using ShopMarket_Web_API.Dtos.Product;
 using ShopMarket_Web_API.Models;
 using ShopMarket_Web_API.Reprositories.ProductReprository;
 
 namespace ShopMarket_Web_API.Controllers
 {
+    [Authorize(Roles =UserRoles.Admin)]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -51,6 +54,7 @@ namespace ShopMarket_Web_API.Controllers
             return Ok(result);
         }
         [HttpGet("StockProducts")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetStockProducts()
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -60,6 +64,7 @@ namespace ShopMarket_Web_API.Controllers
         }
 
         [HttpGet("{productId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProductByID([FromRoute] int productId)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
